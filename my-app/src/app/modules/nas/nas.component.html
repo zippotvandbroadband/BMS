@@ -1,0 +1,94 @@
+<h2><strong>NAS</strong></h2>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+       Create NAS
+      </mat-panel-title>
+      <mat-panel-description>
+        NAS Information
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+<div class="mainDiv">
+    <mat-form-field appearance="outline" class="formInput">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="NAS Name" >
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="formInput">
+        <mat-label>Owner</mat-label>
+        <input matInput placeholder="Owner Name" >
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="formInput">
+        <mat-label>NAS IP Address</mat-label>
+        <input matInput placeholder="IP Address" >
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+      <div fxFlex="25">
+        <h4><strong>NAS Type : </strong> </h4>
+      </div>
+      <div fxFlex="25">
+        <mat-checkbox><strong>Microtik </strong></mat-checkbox><br>
+        <mat-checkbox><strong>Cisco </strong></mat-checkbox><br>
+        <mat-checkbox><strong>Other </strong></mat-checkbox><br>
+      </div>
+      <div fxFlex="25"> 
+      </div>
+      <div fxFlex="25" >
+      </div>
+    </div>
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>Secret</mat-label>
+        <input matInput placeholder="Secret" >
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="formInput">
+        <mat-label>Description</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+      <div class="checkboxes">
+        <mat-checkbox><strong>Disable </strong></mat-checkbox>
+      </div>
+    <button mat-raised-button color="primary" class="submit">Create</button>
+    
+    </div>
+    </mat-expansion-panel>
+    </mat-accordion>
+    
+    <div fxLayout="row">
+    
+      <mat-form-field style="width: 100%; margin-top: 20px;" appearance="outline">
+          <mat-label>Search</mat-label>
+          <input matInput (keyup)="applyFilter($event)"  placeholder="Ex. ium">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" style="margin-bottom: 5em;">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> address </th>
+            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef> type </th>
+            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> status </th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>

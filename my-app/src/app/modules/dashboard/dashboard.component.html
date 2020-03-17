@@ -1,0 +1,128 @@
+<div>
+    <app-area [data] = "bigCharts"></app-area>
+</div>
+
+<br>
+    <mat-divider></mat-divider>
+<br>
+<h2>Users</h2>
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+    <mat-card fxFlex="33">
+        <app-widget-card lable="New Users" total="18k" percentage="50" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+    <mat-card fxFlex="33">
+        <app-widget-card lable="Disabled Users" total="2k" percentage="10" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+    <mat-card fxFlex="33">
+        <app-widget-card lable="Active Users" total="20k" percentage="30" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+</div>
+<br>
+<br>
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+    <mat-card fxFlex="33">
+        <app-widget-card lable="Online Users" total="2k" percentage="40" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+    <mat-card fxFlex="33">
+        <app-widget-card lable="Expired Users" total="2k" percentage="40" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+    <mat-card fxFlex="33">
+        <app-widget-card lable="Expiring Today" total="2k" percentage="40" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+</div>
+
+<br>
+    <mat-divider></mat-divider>
+<br>
+<h2>NAS</h2>
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+    <mat-card fxFlex="24">
+        <app-widget-card lable="Total NAS" total="18k" percentage="50" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+    <mat-card fxFlex="24">
+        <app-widget-card lable="Disabled NAS" total="2k" percentage="10" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+    <mat-card fxFlex="24">
+        <app-widget-card lable="Active NAS" total="20k" percentage="30" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+    <mat-card fxFlex="24">
+        <app-widget-card lable="Online NAS" total="20k" percentage="30" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+</div>
+<br>
+    <mat-divider></mat-divider>
+<br>
+<h2>Registrations</h2>
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+    <mat-card fxFlex="33">
+        <app-widget-card lable="Registred Today" total="18k" percentage="50" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+    <mat-card fxFlex="33">
+        <app-widget-card lable="Registred This Month" total="2k" percentage="10" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+    <mat-card fxFlex="33">
+        <app-widget-card lable="Registred Last Month" total="20k" percentage="30" [data] = "cards" flag="true"></app-widget-card>
+    </mat-card>
+</div>
+
+<br>
+    <mat-divider></mat-divider>
+<br>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" >
+    <div fxFlex="60">
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+          
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+              </ng-container>
+        
+              <ng-container matColumnDef="complain">
+                <th mat-header-cell *matHeaderCellDef> complain </th>
+                <td mat-cell *matCellDef="let element"> {{element.complain}} </td>
+              </ng-container>
+        
+              <ng-container matColumnDef="subscriber">
+                <th mat-header-cell *matHeaderCellDef> subscriber </th>
+                <td mat-cell *matCellDef="let element"> {{element.subscriber}} </td>
+              </ng-container>
+        
+              <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef> type </th>
+                <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="priority">
+                <th mat-header-cell *matHeaderCellDef> priority </th>
+                <td mat-cell *matCellDef="let element"> {{element.priority}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> status </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="subject">
+                <th mat-header-cell *matHeaderCellDef> subject </th>
+                <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+              </ng-container>
+              
+              <ng-container matColumnDef="assignTo">
+                <th mat-header-cell *matHeaderCellDef> assignTo </th>
+                <td mat-cell *matCellDef="let element"> {{element.assignTo}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+          </div>
+    </div>
+    <div fxFlex="40">
+        <app-widget-pie [data] = "pie"></app-widget-pie>
+    </div>
+</div>
+

@@ -1,0 +1,195 @@
+<h2><strong>Users</strong></h2>
+<mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Add User
+        </mat-panel-title>
+        <mat-panel-description>
+          Credential Information
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+      <mat-form-field appearance="outline" class="formInput">
+          <mat-label>Uesr Name</mat-label>
+          <input matInput placeholder="User Name">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="formInput">
+            <mat-label>Designation</mat-label>
+            <input matInput placeholder="Designation">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+        <mat-form-field appearance="outline" class="formInput">
+            <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="formInput">
+            <mat-label>Confirm Password</mat-label>
+          <input matInput [type]="hide1 ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
+      <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+        <div fxFlex="25">
+            <h4><strong>User Type :</strong></h4>
+        </div>
+        <div fxFlex="75">
+            <mat-checkbox class="margin1">Admin</mat-checkbox><br>
+            <mat-checkbox class="margin1">Management Staff</mat-checkbox><br>
+            <mat-checkbox class="margin1">Helpdesk Saff</mat-checkbox><br>
+            <mat-checkbox class="margin1">Service Staff</mat-checkbox><br>
+            <mat-checkbox class="margin1">Sales Staff</mat-checkbox><br>
+        </div>
+    </div>
+    
+      <div class="checkboxes">
+          <mat-checkbox class="margin1">Disable</mat-checkbox>
+      </div>
+    </mat-expansion-panel>
+</mat-accordion>
+<mat-accordion>
+    <mat-expansion-panel style="margin-top: 20px;">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Private Information
+        </mat-panel-title>
+        <mat-panel-description>
+          Private Information
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+        <mat-form-field appearance="outline" class="formInput">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First Name">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="formInput">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name">
+          </mat-form-field>    
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+          <mat-form-field appearance="outline">
+              <mat-label>Country</mat-label>
+              <mat-select>
+                <mat-option value="option">India</mat-option>
+                <mat-option value="option">U.S.</mat-option>
+                <mat-option value="option">U.K.</mat-option>
+              </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label>State</mat-label>
+              <mat-select>
+                <mat-option value="option">Gujrat</mat-option>
+                <mat-option value="option">Delhi</mat-option>
+                <mat-option value="option">Maharashtra</mat-option>
+              </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label>Zip</mat-label>
+              <mat-select>
+                <mat-option value="option">365004</mat-option>
+                <mat-option value="option">365005</mat-option>
+                <mat-option value="option">365006</mat-option>
+              </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label>City</mat-label>
+              <mat-select>
+                <mat-option value="option">Surat</mat-option>
+                <mat-option value="option">Bhavnagar</mat-option>
+                <mat-option value="option">Bharuch</mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+          <mat-form-field appearance="outline" class="formInput">
+              <mat-label>Address</mat-label>
+              <textarea matInput></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="formInput">
+              <mat-label>Notes</mat-label>
+              <textarea matInput></textarea>
+            </mat-form-field>
+          </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+          <mat-form-field appearance="outline" class="formInput">
+              <mat-label>Phone</mat-label>
+              <input type="number" maxlength="10" matInput placeholder="Phone">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="formInput">
+              <mat-label>Alternative Phone</mat-label>
+              <input matInput type="number"maxlength="10" placeholder="Alternative Phone">
+            </mat-form-field>
+            
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+      <mat-form-field  appearance="outline" class="formInput">
+          <mat-label>Email</mat-label>
+          <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                 placeholder="Ex. pat@example.com">
+          <mat-hint>Errors appear instantly!</mat-hint>
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<button mat-raised-button color="primary" class="submit">Create</button>
+
+<div fxLayout="row">
+    
+    <mat-form-field style="width: 100%; margin-top: 20px;" appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)"  placeholder="Ex. ium">
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" style="margin-bottom: 5em;">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef> type </th>
+          <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> status </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="login">
+          <th mat-header-cell *matHeaderCellDef> Last Login </th>
+          <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ip">
+          <th mat-header-cell *matHeaderCellDef> Last Login  IP</th>
+          <td mat-cell *matCellDef="let element"> {{element.ip}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>

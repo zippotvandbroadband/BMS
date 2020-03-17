@@ -1,0 +1,95 @@
+<h2><strong>Logs</strong></h2>
+<mat-tab-group>
+    <mat-tab label="Access Request Logs"> 
+        <div fxLayout="row">
+    
+            <mat-form-field style="width: 100%; margin-top: 20px;" appearance="outline">
+                <mat-label>Search</mat-label>
+                <input matInput (keyup)="applyFilter($event)"  placeholder="Ex. ium">
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" style="margin-bottom: 5em;">
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+              
+                <ng-container matColumnDef="position">
+                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef>User Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="mac">
+                    <th mat-header-cell *matHeaderCellDef>Client MAC Address </th>
+                    <td mat-cell *matCellDef="let element"> {{element.mac}} </td>
+                  </ng-container>
+              
+                <ng-container matColumnDef="nas">
+                  <th mat-header-cell *matHeaderCellDef> NAS IP Address </th>
+                  <td mat-cell *matCellDef="let element"> {{element.nas}} </td>
+                </ng-container>
+          
+                <ng-container matColumnDef="reply">
+                  <th mat-header-cell *matHeaderCellDef>Reply Type </th>
+                  <td mat-cell *matCellDef="let element"> {{element.reply}} </td>
+                </ng-container>
+      
+                <ng-container matColumnDef="msg">
+                  <th mat-header-cell *matHeaderCellDef> Reply Message </th>
+                  <td mat-cell *matCellDef="let element"> {{element.msg}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            </div>
+    </mat-tab>
+    <mat-tab label="Traffic Repport"> 
+        <div fxLayout="row">
+    
+            <mat-form-field style="width: 100%; margin-top: 20px;" appearance="outline">
+                <mat-label>Search</mat-label>
+                <input matInput (keyup)="applyFilter($event)"  placeholder="Ex. ium">
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" style="margin-bottom: 5em;">
+              <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
+              
+                <ng-container matColumnDef="date">
+                  <th mat-header-cell *matHeaderCellDef> Date </th>
+                  <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef>User Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="online">
+                    <th mat-header-cell *matHeaderCellDef>Online Time </th>
+                    <td mat-cell *matCellDef="let element"> {{element.online}} </td>
+                  </ng-container>
+              
+                <ng-container matColumnDef="download">
+                  <th mat-header-cell *matHeaderCellDef> Download </th>
+                  <td mat-cell *matCellDef="let element"> {{element.download}} </td>
+                </ng-container>
+          
+                <ng-container matColumnDef="upload">
+                  <th mat-header-cell *matHeaderCellDef>Upload </th>
+                  <td mat-cell *matCellDef="let element"> {{element.upload}} </td>
+                </ng-container>
+      
+                <ng-container matColumnDef="total">
+                  <th mat-header-cell *matHeaderCellDef>Total </th>
+                  <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+              </table>
+            </div>
+    </mat-tab>
+  </mat-tab-group>
